@@ -18,6 +18,7 @@ const orm = {
             if (err) {
                 throw err;
             }
+
             cb(data);
         })
     },
