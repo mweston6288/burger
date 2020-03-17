@@ -9,6 +9,19 @@ $(function(){
         }).then(function(){
             location.reload();
         })
+    });
+
+    $(".create-form").on("submit", function(event){
+
+        event.preventDefault();
+        const newBurger = {
+            burger_name: $("#burgerName").val().trim()
+        };
+        $.ajax("/api/burgers",{
+            type: "POST",
+            data: newBurger
+        }).then(function(){
+            location.reload();
+        })
     })
-}
-)
+})

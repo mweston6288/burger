@@ -17,7 +17,7 @@ router.get("/",function(req,res){
 
 // add to the database and then update the page
 router.post("/api/burgers/", (req, res)=>{
-    burger.add(["name"], [req.body.name], function(result){
+    burger.add(["burger_name"], [req.body.burger_name], function(result){
         res.json({ id: result.insertId });
     })
 });
