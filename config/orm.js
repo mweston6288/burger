@@ -7,7 +7,7 @@ const connection = require ("../config/connection.js");
 function sqlForm(object){
 
     const keys = Object.keys(object);
-    return keys[0] + "= '" + object[keys[0]] + "'";
+    return keys[0] + " = true";
 }
 
 const orm = {
@@ -32,8 +32,7 @@ const orm = {
     },
     // edit one item from the database
     updateOne:function(table, cols, condition, cb){
-        const sqlString = "UPDATE " + table + "SET " + sqlForm(cols) + " WHERE " + condition + ";";
-
+        const sqlString = "UPDATE " + table + " SET " + sqlForm(cols) + " WHERE " + condition + ";";
         connection.query(sqlString, (err,response)=>{
             if (err) throw err;
             cb(response);

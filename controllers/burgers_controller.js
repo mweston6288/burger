@@ -11,22 +11,22 @@ router.get("/",function(req,res){
         const burgerObject = {
             burgers: data
         };
-        console.log(burgerObject);
         res.render("index", burgerObject);
     });
 });
 
 // add to the database and then update the page
-router.post("/api/burgers", (req, res)=>{
+router.post("/api/burgers/", (req, res)=>{
     burger.add(["name"], [req.body.name], function(result){
         res.json({ id: result.insertId });
     })
 });
 
 // Update a database
-router.put("api/burgers",(req,res)=>{
+router.put("/api/burgers/:id",function(req,res){
     const condition = "id = " + req.params.id;    
-    burger.update({devoured: req.body.devoured}, condition, (res)=>{
+
+    burger.update({devoured: req.body.devoured}, condition, function(result){
         if (result.changedRows == 0) {
             // If no rows were changed, then the ID must not exist, so 404
             return res.status(404).end();
