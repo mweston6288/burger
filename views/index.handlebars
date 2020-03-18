@@ -1,21 +1,29 @@
-<h2>Your uneaten burgers!</h2>
+<header>EAT-DA-BORGER</header>
+<div class = "separator">
+  <h2>Your uneaten burgers!</h2>
+  <ul>
+    {{#each burgers}}
+      {{#unless devoured}}
+        {{>burgers/burger-block}}
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{>burgers/burger-block}}
-    {{/unless}}
-  {{/each}}
-</ul>
-<h2>Your devoured burgers!</h2>
+<div class = "separator">
+  <h2>Your devoured burgers!</h2>
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-    <li>{{burger_name}}</li>
-    {{/if}}
-  {{/each}}
-</ul>
+  <ul>
+    {{#each burgers}}
+      {{#if devoured}}
+      <li>{{burger_name}}</li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
+
+<h2>Add a burger!</h2>
+
 <form class = "create-form">
   <label for = "burgerName">Burger:</label>
   <input type = "text" id = "burgerName" name = "name">

@@ -1,0 +1,15 @@
+li {
+    padding: 5px;
+    margin: 5px;
+    background: #faebd7;
+}
+header{
+    font-size: 5em;
+    text-align: center;
+}
+.separator{
+    border-bottom: solid;
+}
+.create-form{
+    margin-top: 10px;
+}
