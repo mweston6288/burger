@@ -2,14 +2,18 @@
 
 const mysql = require("mysql");
 
-// Credentials. Change password and user if necessary
-const connection = mysql.createConnection({
+// Setup connection; check if using Heroku or local credentials
+const connection;
+if (process.env.JAWSDB_URL){
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else{
+connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
     password: "",
     database: "burgerDB"
-});
+})};
 
 // Attempt to connect. Print an error if one occurs. Otherwise print connection ID
 connection.connect((err)=>{
