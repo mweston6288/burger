@@ -35,7 +35,7 @@ router.put("/api/burgers/:id",function(req,res){
           };
     })
 });
-
+// Delete the content of the database
 router.delete("/api/burgers/",function(req,res){
     burger.delete(function(result){
         res.status(200).end();

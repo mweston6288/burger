@@ -24,7 +24,8 @@ const burger = {
             cb(res);
         })
     },
-
+    // Delete all elements from the database
+    // Takes a callback function
     delete: function(cb){
         orm.delete("burgers", (res)=>{
             cb(res);
