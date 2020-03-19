@@ -3,7 +3,7 @@
 const mysql = require("mysql");
 
 // Setup connection; check if using Heroku or local credentials
-const connection;
+let connection;
 if (process.env.JAWSDB_URL){
     connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else{
