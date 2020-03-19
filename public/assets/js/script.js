@@ -24,4 +24,12 @@ $(function(){
             location.reload();
         })
     })
+    $(".delete").on("click", function(event){
+        event.preventDefault();
+        $.ajax("/api/burgers",{
+            type:"DELETE"
+        }).then(function(){
+            location.reload();
+        })
+    })
 })

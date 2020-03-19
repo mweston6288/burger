@@ -38,6 +38,15 @@ const orm = {
             cb(response);
         })
 
+    },
+
+    delete:function(table, cb){
+        const sqlString = "DELETE FROM "+ table;
+        console.log(sqlString);
+        connection.query(sqlString, (err,response)=>{
+            if (err) throw err;
+            cb(response);
+        })
     }
 }
 

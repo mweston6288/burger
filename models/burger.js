@@ -21,7 +21,13 @@ const burger = {
     // Takes an existing burger object, the condition to change and a callback function
     update: function(object, condition, cb){
         orm.updateOne("burgers", object, condition, (res)=>{
-            cb(res)
+            cb(res);
+        })
+    },
+
+    delete: function(cb){
+        orm.delete("burgers", (res)=>{
+            cb(res);
         })
     }
 }
