@@ -42,7 +42,6 @@ const orm = {
     // Delete all content from the database
     delete:function(table, cb){
         const sqlString = "DELETE FROM "+ table;
-        console.log(sqlString);
         connection.query(sqlString, (err,response)=>{
             if (err) throw err;
             cb(response);
